@@ -28,6 +28,30 @@ public class GameEngine {
         currentPlayer = playerOne;
         // answers = TextFileOps
     }
+    public void swapCurrentPlayer()
+    {
+        if (currentPlayer == playerOne)
+        {
+            currentPlayer = playerTwo;
+        }
+        else
+        {
+            currentPlayer = playerOne;
+        }
+    }
+    public Player getResult()
+    {
+        if(playerOne.getScore() > playerTwo.getScore())
+        {
+
+            return playerOne;
+        }
+        else if(playerOne.getScore() < playerTwo.getScore())
+        {
+            return playerTwo;
+        }
+        return new Player("TIE");
+    }
     public boolean checkForGameEnd()
     {
         if(currentRound == rounds && currentPlayer == playerOne)
