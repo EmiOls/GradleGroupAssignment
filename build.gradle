@@ -24,4 +24,11 @@ jar {
     }
 }
 
-defaultTasks 'clean', 'compileJava' ,'compileTest' ,'test', 'assemble', 'run'
+tasks.register('runGame', JavaExec) {
+    dependsOn 'classes'
+    main = "ui.Main"
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+}
+
+defaultTasks 'clean', 'compileJava' ,'test', 'assemble'
