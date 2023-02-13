@@ -39,4 +39,13 @@ public class Launcher {
         return false;
     }
 
+    //This method declares the winner.
+    private static void declareWinner(GameEngine game) {
+        Player winner = game.getResult();
+        if (winner.getName().equals("TIE")) {
+            System.out.printf("Game was a tie you both scored %d", game.getPlayerOne().getScore());
+        } else {
+            System.out.printf("%s Won with %d points", winner.getName(), winner.getScore());
+        }
+    }
 }
