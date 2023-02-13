@@ -20,4 +20,18 @@ public class TextFileOpsTest {
             TextFileOps.createAnswerMap("capitals.txt");
         });
     }
+
+    @Test
+    public void testCreateCountryListWithBadFile() {
+        assertThrows(IOException.class, () -> {
+            TextFileOps.createCountryList("na");
+        }, "IOException expected");
+    }
+
+    @Test
+    public void testCreateCountryListWithGoodFile() throws IOException {
+        assertDoesNotThrow(() -> {
+            TextFileOps.createCountryList("capitals.txt");
+        });
+    }
 }
