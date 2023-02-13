@@ -28,4 +28,23 @@ public class GameEngine {
         currentPlayer = playerOne;
         // answers = TextFileOps
     }
+    public boolean checkForGameEnd()
+    {
+        if(currentRound == rounds && currentPlayer == playerOne)
+        {
+            return true;
+        }
+        return false;
+    }
+    public Player getPlayerOne() {
+        return playerOne;
+    }
+    public Player getPlayerTwo() {
+        return playerTwo;
+    }
+
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+
 }
