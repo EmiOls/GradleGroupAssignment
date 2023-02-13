@@ -25,10 +25,10 @@ public class GameEngine {
         currentRound = 0;
         currentGuess = 0;
         currentPlayer = playerOne;
-        answers = TextFileOps.createAnswerMap("capitols.txt");
+        answers = TextFileOps.createAnswerMap("capitals.txt");
     }
     public void loadQuestions() throws IOException {
-        List<String> countriesList = TextFileOps.createCountryList("capitols.txt");
+        List<String> countriesList = TextFileOps.createCountryList("capitals.txt");
         Set<String> temp = new HashSet<>();
         while (temp.size() < 5 * rounds) {
             int i = ThreadLocalRandom.current().nextInt(countriesList.size());

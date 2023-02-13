@@ -27,9 +27,17 @@ public class GameEngineTest
         game.loadQuestions();
         assertNotNull(game.getCountry());
     }
+   @Test
+    public void testcheckForGameEnd() throws IOException {
+       GameEngine game = new GameEngine(new Player("first"), new Player("second"), 1);
+       assertFalse(game.checkForGameEnd());
+
+   }
     @Test
-    public  void testFail()
-    {
-        assertEquals(1, 2);
+    public void testnewRoundCheckAndSet() throws IOException {
+        GameEngine game = new GameEngine(new Player("first"), new Player("second"), 1);
+        game.newRoundCheckAndSet();
+        assertFalse(game.checkForGameEnd());
+
     }
 }
