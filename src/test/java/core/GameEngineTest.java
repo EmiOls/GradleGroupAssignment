@@ -40,4 +40,20 @@ public class GameEngineTest
         assertTrue(game.checkForGameEnd());
 
     }
+
+    @Test
+    public void getResultWinner() throws IOException {
+        Player first = new Player("first");
+        GameEngine game = new GameEngine(first, new Player("second"), 1);
+        first.setScore(1);
+        assertEquals(first, game.getResult());
+    }
+
+    @Test
+    public void getResultTie() throws IOException {
+        Player tie = new Player("TIE");
+        GameEngine game = new GameEngine(new Player("first"), new Player("second"), 1);
+        assertEquals(tie.getName(), game.getResult().getName());
+    }
+
 }
