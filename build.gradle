@@ -24,4 +24,4 @@ jar {
     }
 }
 
-defaultTasks 'clean', 'compileJava' ,'compileTest' ,'test', 'assemble'
+defaultTasks 'clean', 'compileJava' ,'compileTest' ,'test', 'assemble', 'run'
