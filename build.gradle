@@ -24,9 +24,8 @@ jar {
     }
 }
 
-tasks.register('runGame', JavaExec) {
-    dependsOn 'classes'
-    main = "ui.Main"
+task(runGame, dependsOn: 'classes', type: JavaExec) {
+    mainClass = "ui.Main"
     classpath = sourceSets.main.runtimeClasspath
     standardInput = System.in
 }
