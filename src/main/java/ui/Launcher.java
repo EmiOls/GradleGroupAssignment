@@ -48,4 +48,20 @@ public class Launcher {
             System.out.printf("%s Won with %d points", winner.getName(), winner.getScore());
         }
     }
+
+    //This method prints a new question.
+    private static void newQuestion(GameEngine game)
+    {
+        System.out.printf("What is the capital of %s \n", game.getCountry());
+    }
+    private static void clearScreen()
+    {
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+
+    }
+
 }
