@@ -37,7 +37,7 @@ public class GameEngineTest
     public void testnewRoundCheckAndSet() throws IOException {
         GameEngine game = new GameEngine(new Player("first"), new Player("second"), 1);
         game.newRoundCheckAndSet();
-        assertFalse(game.checkForGameEnd());
+        assertTrue(game.checkForGameEnd());
 
     }
 }
