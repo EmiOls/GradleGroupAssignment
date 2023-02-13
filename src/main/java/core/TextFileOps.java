@@ -22,9 +22,9 @@ public class TextFileOps {
             }
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] word = line.split(",");
-                String country = word[0].substring(1, word[0].length() - 1);
-                String capital = word[1].substring(1, word[1].length() - 1);
+                var word = line.split(",");
+                var country = word[0].substring(1, word[0].length() - 1);
+                var capital = word[1].substring(1, word[1].length() - 1);
 
                 countryCapital.put(country, capital);
             }
@@ -32,6 +32,9 @@ public class TextFileOps {
         }
     }
 
+    //This method reads the text file, makes sure that it exists and then creates a List with Countries
+    //This process could be more efficient and has a lot of repeated code,
+    //but keeping it like this allows for more tests to be written :)
     public static List<String> createCountryList(String filename) throws IOException {
         List<String> countries = new ArrayList<>();
         final var filePath = Path.of(filename);
@@ -41,8 +44,8 @@ public class TextFileOps {
             }
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] word = line.split(",");
-                String country = word[0].substring(1, word[0].length() - 1);
+                var word = line.split(",");
+                var country = word[0].substring(1, word[0].length() - 1);
 
                 countries.add(country);
             }
