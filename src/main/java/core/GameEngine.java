@@ -1,9 +1,8 @@
 package core;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class GameEngine {
 
@@ -26,7 +25,30 @@ public class GameEngine {
         currentRound = 0;
         currentGuess = 0;
         currentPlayer = playerOne;
-        // answers = TextFileOps
+        answers = TextFileOps.createAnswerMap("capitols.txt");
+    }
+    public void loadQuestions() throws IOException {
+        List<String> countriesList = TextFileOps.createCountryList("capitols.txt");
+        Set<String> temp = new HashSet<>();
+        while (temp.size() < 5 * rounds) {
+            int i = ThreadLocalRandom.current().nextInt(countriesList.size());
+            temp.add(countriesList.get(i));
+        }
+
+        Iterator<String> it =  temp.iterator();
+        for(int i = 0; i < rounds; i++)
+        {
+            List<String> roundSet = new ArrayList<>();
+            for(int j = 0; j < 5; j++)
+            {
+                if(it.hasNext())
+                {
+                    roundSet.add(it.next());
+                    it.remove();
+                }
+            }
+            question.add(roundSet);
+        }
     }
     public void swapCurrentPlayer()
     {
@@ -43,7 +65,6 @@ public class GameEngine {
     {
         if(playerOne.getScore() > playerTwo.getScore())
         {
-
             return playerOne;
         }
         else if(playerOne.getScore() < playerTwo.getScore())
@@ -54,7 +75,8 @@ public class GameEngine {
     }
     public boolean checkForGameEnd()
     {
-        if(currentRound == rounds && currentPlayer == playerOne)
+        // currentRound starts at 0 rounds starts at 1
+        if(currentRound == rounds)
         {
             return true;
         }
