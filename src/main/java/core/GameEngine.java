@@ -50,6 +50,14 @@ public class GameEngine {
             question.add(roundSet);
         }
     }
+    public void answerQuestion(String nextLine)
+    {
+
+        if(answers.get(currentCountry).equalsIgnoreCase(nextLine))
+        {
+            currentPlayer.setScore(currentPlayer.getScore() + 1);
+        }
+    }
     public void swapCurrentPlayer()
     {
         if (currentPlayer == playerOne)
@@ -61,6 +69,7 @@ public class GameEngine {
             currentPlayer = playerOne;
         }
     }
+
     public Player getResult()
     {
         if(playerOne.getScore() > playerTwo.getScore())
@@ -73,6 +82,7 @@ public class GameEngine {
         }
         return new Player("TIE");
     }
+
     public boolean checkForGameEnd()
     {
         // currentRound starts at 0 rounds starts at 1
