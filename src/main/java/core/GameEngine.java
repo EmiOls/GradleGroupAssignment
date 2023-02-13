@@ -50,6 +50,13 @@ public class GameEngine {
             question.add(roundSet);
         }
     }
+    public String getCountry()
+    {
+        String country = question.get(currentRound).get(currentGuess);
+        currentGuess++;
+        currentCountry = country;
+        return country;
+    }
     public void answerQuestion(String nextLine)
     {
 
@@ -82,6 +89,7 @@ public class GameEngine {
         }
         return new Player("TIE");
     }
+
 
     public boolean checkForGameEnd()
     {
