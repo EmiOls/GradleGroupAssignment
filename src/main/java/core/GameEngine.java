@@ -50,6 +50,23 @@ public class GameEngine {
             question.add(roundSet);
         }
     }
+    public boolean checkForPlayerSwap()
+    {
+        if(currentGuess == 5)
+        {
+            currentGuess = 0;
+            return true;
+        }
+        return false;
+    }
+    public void newRoundCheckAndSet()
+    {
+
+        if(currentPlayer == playerOne)
+        {
+            currentRound++;
+        }
+    }
     public String getCountry()
     {
         String country = question.get(currentRound).get(currentGuess);

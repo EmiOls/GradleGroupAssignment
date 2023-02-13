@@ -31,7 +31,7 @@ public class Launcher {
     }
 
     //This method is used to check if the entered number of rounds are allowed.(Min:1 Max:4)
-    private static boolean checkRounds(int rounds)
+    public static boolean checkRounds(int rounds)
     {
         if (rounds >= 1 && rounds <= 4) {
             return true;
@@ -40,7 +40,7 @@ public class Launcher {
     }
 
     //This method declares the winner.
-    private static void declareWinner(GameEngine game) {
+    public static void declareWinner(GameEngine game) {
         Player winner = game.getResult();
         if (winner.getName().equals("TIE")) {
             System.out.printf("Game was a tie you both scored %d", game.getPlayerOne().getScore());
@@ -50,11 +50,11 @@ public class Launcher {
     }
 
     //This method prints a new question.
-    private static void newQuestion(GameEngine game)
+    public static void newQuestion(GameEngine game)
     {
         System.out.printf("What is the capital of %s \n", game.getCountry());
     }
-    private static void clearScreen()
+    public static void clearScreen()
     {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
