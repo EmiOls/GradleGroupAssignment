@@ -8,15 +8,14 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         try (Scanner input = new Scanner(System.in)) {
-            GameEngine game = Launcher.gameStartup(input);
+            GameEngine game = Launcher.gameStartup();
             while (!game.checkForGameEnd()) {
                 initiateRound(input, game);
                 manageQuestions(input, game);
                 game.newRoundCheckAndSet();
             }
             Launcher.declareWinner(game);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

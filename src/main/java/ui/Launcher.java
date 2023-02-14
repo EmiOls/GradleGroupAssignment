@@ -10,7 +10,8 @@ public class Launcher {
 
     // This method asks the user for player names, number of rounds then makes an
     // instance of GameEngine and returns it.
-    public static GameEngine gameStartup(Scanner input) throws IOException {
+    public static GameEngine gameStartup() throws IOException {
+        Scanner input = new Scanner(System.in);
         System.out.println("-----Question Game v0.1a-----");
         System.out.print("Player 1 name: ");
         String playerOneName = input.nextLine();
@@ -18,16 +19,17 @@ public class Launcher {
         String playerTwoName = input.nextLine();
         Player playerOne = new Player(playerOneName);
         Player playerTwo = new Player(playerTwoName);
-        System.out.println("Rounds (5 questions per round): ");
+        System.out.println("How many rounds would you like to play? (5 questions per round)");
         int rounds = input.nextInt();
         input.nextLine();
-        if (!checkRounds(rounds)) {
-            System.out.println("You must enter a number between 1 and 4. Quitting...");
-            System.exit(2);
+        while (!checkRounds(rounds)) {
+            System.out.println("You must enter a number between 1 and 4.");
+            rounds = input.nextInt();
+            input.nextLine();
         }
         GameEngine game = new GameEngine(playerOne, playerTwo, rounds);
         game.loadQuestions();
-
+        input.close();
         return game;
     }
 
